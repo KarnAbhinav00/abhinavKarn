@@ -1,0 +1,36 @@
+# ==========================================================
+#   NEVER COMMIT – Sensitive / Build artefacts
+# ==========================================================
+
+# Environment files – keep secrets out of the repo
+.env
+.env.local
+.env.production
+.env.development
+.env.*                # catch any other .env‑style files
+
+# Database files (SQLite, etc.)
+*.db
+*.sqlite
+*.sqlite3
+
+# Node.js dependencies
+node_modules/
+
+# Next.js build output
+.next/
+dist/
+build/
+
+# SSL / TLS certificates & private keys
+cert.pem
+key.pem
+*.crt
+*.cer
+*.key
+
+# API keys / service‑account JSON credentials
+*.json               # be careful – if you keep non‑credential JSON files elsewhere, add an explicit exclude later
+
+# Any other private / secret files you might add in the future
+# (add new entries below as needed)
