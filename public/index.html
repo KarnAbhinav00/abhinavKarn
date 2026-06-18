@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhinav AKA Tyson | Portfolio</title>
+  <meta name="description" content="Personal portfolio and daily blog of Abhinav AKA Tyson, Class 10 student studying at PM Shri Kendriya Vidyalaya, India.">
+  <link rel="stylesheet" href="/style.css">
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-theme">
+
+  <!-- ==========================================
+       HEADER & NAVIGATION
+       ========================================== -->
+  <header>
+    <div class="container nav-bar">
+      <a href="/" class="logo-container">
+        <div class="logo-spike"></div>
+        <span>Abhinav.Tyson</span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#updates" class="nav-link">Updates</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="/blog" class="nav-link">Daily Blog</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle dark/light theme">
+          <svg class="moon-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          <svg class="sun-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.46 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path></svg>
+        </button>
+        <a href="/blog" class="btn btn-primary btn-pill">Read Blog</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       HERO / INTRO SECTION (BLENDED MESH)
+       ========================================== -->
+  <section id="about" class="hero-section scroll-reveal">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="badge badge-coral">Class 10 Student</span>
+          <span class="badge badge-indigo">KV Student</span>
+        </div>
+        <h1 class="hero-title anim-fade-up" data-reveal-delay="0">Hey, I'm Abhinav<br><span style="color: var(--accent-primary);">AKA Tyson</span></h1>
+        <p class="hero-description anim-fade-up" data-reveal-delay="100">
+          Welcome to my digital workspace. I study at <strong>PM Shri Kendriya Vidyalaya</strong> in India. 
+          I build secure web systems, design smooth frontends, and document my progress through daily logs.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">Explore Projects</a>
+          <a href="/blog" class="btn btn-secondary">Read Daily Blogs</a>
+        </div>
+        <div class="hero-eyebrow" style="margin-top: 28px;">
+          <span class="badge badge-indigo">Security-first</span>
+          <span class="badge badge-coral">Daily updates</span>
+          <span class="badge">Student portfolio</span>
+        </div>
+      </div>
+      <div class="hero-graphic">
+        <div class="terminal-card">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <div class="terminal-dot"></div>
+              <div class="terminal-dot"></div>
+              <div class="terminal-dot"></div>
+            </div>
+            <div class="terminal-title">tyson-shell ~ guest</div>
+            <div><i class="fa-solid fa-shield-halved" style="color: var(--accent-teal); font-size: 12px;"></i></div>
+          </div>
+          <div class="terminal-body">
+            <div class="terminal-line"><span class="terminal-prompt">></span>whoami</div>
+            <div class="terminal-line" style="color: var(--text-on-dark-soft);">Name: Abhinav AKA Tyson<br>Role: Student / Full-Stack Hobbyist<br>School: PM Shri Kendriya Vidyalaya<br>Country: India 🇮🇳</div>
+            <div class="terminal-line"><span class="terminal-prompt">></span>fetch --security</div>
+            <div class="terminal-line" style="color: var(--accent-teal);">[✓] Layer 1: HTTPOnly JWT Session Active<br>[✓] Layer 2: API Protection & Helmet Headers Enforced<br>[✓] Layer 3: Environment Variables Hidden</div>
+            <div class="terminal-line"><span class="terminal-prompt">></span>cat greeting.txt</div>
+            <div class="terminal-line" style="color: #ffbd2e;">"Doing coding updates daily! Check out my blog."</div>
+            <div class="terminal-line"><span class="terminal-prompt">></span><span class="terminal-cursor"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       UPDATES / TIMELINE SECTION
+       ========================================== -->
+  <section id="updates" class="section scroll-reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-coral">Chronology</span>
+        <h2 class="section-title">Latest Updates</h2>
+        <p class="section-description">A real-time timeline of my academic milestones, coding activities, and accomplishments.</p>
+      </div>
+      <div id="updates-timeline" class="timeline">
+        <!-- Rendered dynamically -->
+        <p style="text-align: center; color: var(--text-muted);">Loading logs...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       PROJECTS SECTION
+       ========================================== -->
+  <section id="projects" class="section scroll-reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-indigo">Portfolio</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-description">A curated selection of software projects I've built, testing web APIs, local databases, and layouts.</p>
+      </div>
+      <div id="projects-grid-container" class="projects-grid">
+        <!-- Rendered dynamically -->
+        <p style="text-align: center; color: var(--text-muted);">Loading projects...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SKILLS SECTION
+       ========================================== -->
+  <section id="skills" class="section scroll-reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-coral">Proficiency</span>
+        <h2 class="section-title">Core Skills</h2>
+        <p class="section-description">My technical toolkit and confidence levels across programming languages, tools, and systems.</p>
+      </div>
+      <div id="skills-container-element" class="skills-container">
+        <!-- Rendered dynamically -->
+        <p style="text-align: center; color: var(--text-muted);">Loading technical toolkit...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       DAILY BLOGS HIGHLIGHT SECTION
+       ========================================== -->
+  <section id="blogs-preview" class="section scroll-reveal">
+    <div class="container">
+      <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+        <div>
+          <span class="badge badge-indigo">Logs</span>
+          <h2 class="section-title" style="margin-top: 8px;">Recent Blog Posts</h2>
+          <p class="section-description">Writing articles daily about web security, computer science, and life at PM Shri Kendriya Vidyalaya.</p>
+        </div>
+        <a href="/blog" class="btn btn-secondary">View All Blogs <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></a>
+      </div>
+      <div id="blogs-preview-container" class="blogs-grid">
+        <!-- Rendered dynamically -->
+        <p style="text-align: center; color: var(--text-muted);">Loading recent blogs...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       CONTACT FORM SECTION
+       ========================================== -->
+  <section id="contact" class="section scroll-reveal" style="border-bottom: none;">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-coral">Get in touch</span>
+        <h2 class="section-title">Send a Message</h2>
+        <p class="section-description">Have any feedback or want to collaborate on a school project? Drop a message below!</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p style="font-size: 15px; margin-bottom: 16px;">
+            Feel free to connect directly through email or by using this secure contact form. I try to reply within 24 hours.
+          </p>
+          <div class="contact-method">
+            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <div class="contact-label">Contact Mail</div>
+              <div class="contact-val"><a href="mailto:karn.abhinav00@gmail.com">karn.abhinav00@gmail.com</a></div>
+            </div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <div class="contact-label">Location</div>
+              <div class="contact-val">India</div>
+            </div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-icon"><i class="fa-solid fa-school"></i></div>
+            <div>
+              <div class="contact-label">Institution</div>
+              <div class="contact-val">PM Shri Kendriya Vidyalaya</div>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <form id="contact-form">
+            <div id="contact-form-status" class="form-status"></div>
+            <div class="form-group">
+              <label for="contact-name" class="form-label">Your Name</label>
+              <input type="text" id="contact-name" name="name" class="form-input" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-email" class="form-label">Email Address</label>
+              <input type="email" id="contact-email" name="email" class="form-input" placeholder="you@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-message" class="form-label">Message</label>
+              <textarea id="contact-message" name="message" class="form-input" placeholder="Type your message here..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              Send Message <i class="fa-regular fa-paper-plane" style="margin-left: 8px;"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="logo-spike footer-logo-spike"></div>
+            <span>Abhinav.Tyson</span>
+          </div>
+          <p class="footer-desc">
+            Personal developer space for Class 10 student Abhinav (Tyson). Studying at PM Shri Kendriya Vidyalaya, India.
+          </p>
+        </div>
+        <div class="footer-links">
+          <div>
+            <div class="footer-links-title">Sections</div>
+            <ul class="footer-links-list">
+              <li><a href="#about">About Me</a></li>
+              <li><a href="#updates">Updates</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#skills">Technical Skills</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-links-title">Portals</div>
+            <ul class="footer-links-list">
+              <li><a href="/blog">Daily Blogs</a></li>
+              <li><a href="/login">Admin Login</a></li>
+              <li><a href="mailto:karn.abhinav00@gmail.com">Send Email</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="copyright">&copy; 2026 Abhinav AKA Tyson. All rights reserved.</div>
+        <div class="footer-security" style="font-size: 11px; color: var(--text-on-dark-soft); display: flex; align-items: center; gap: 6px;">
+          <i class="fa-solid fa-shield-halved" style="color: var(--accent-primary);"></i> 3-Layer Client-Server Security System
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+  <script src="/animation.js"></script>
+</body>
+</html>

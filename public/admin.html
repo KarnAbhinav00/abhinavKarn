@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Tyson Portfolio</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-theme">
+
+  <!-- ==========================================
+       HEADER & NAVIGATION
+       ========================================== -->
+  <header>
+    <div class="container nav-bar">
+      <div class="logo-container">
+        <div class="logo-spike"></div>
+        <span>Tyson.Admin</span>
+      </div>
+      <div style="font-size: 13px; font-weight: 500; color: var(--accent-teal);">
+        <i class="fa-solid fa-lock" style="margin-right: 4px;"></i> Secure Control Panel
+      </div>
+      <div class="nav-actions">
+        <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle dark/light theme">
+          <svg class="moon-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          <svg class="sun-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.46 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path></svg>
+        </button>
+        <button id="admin-logout-btn" class="btn btn-secondary btn-pill">Log Out <i class="fa-solid fa-arrow-right-from-bracket" style="margin-left: 6px;"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       ADMIN LAYOUT CONTROL PANEL
+       ========================================== -->
+  <main class="container admin-layout">
+    
+    <!-- Left Sidebar -->
+    <aside class="admin-sidebar">
+      <ul class="admin-menu-list">
+        <li>
+          <button class="admin-menu-btn active" data-pane="blogs">
+            <i class="fa-regular fa-newspaper"></i> Manage Blogs
+          </button>
+        </li>
+        <li>
+          <button class="admin-menu-btn" data-pane="projects">
+            <i class="fa-solid fa-laptop-code"></i> Manage Projects
+          </button>
+        </li>
+        <li>
+          <button class="admin-menu-btn" data-pane="skills">
+            <i class="fa-solid fa-sliders"></i> Manage Skills
+          </button>
+        </li>
+        <li>
+          <button class="admin-menu-btn" data-pane="updates">
+            <i class="fa-solid fa-timeline"></i> Manage Updates
+          </button>
+        </li>
+        <li>
+          <button class="admin-menu-btn" data-pane="messages">
+            <i class="fa-regular fa-envelope"></i> Messages
+            <span id="unread-count" class="badge badge-coral" style="margin-left: auto; display: none;">0</span>
+          </button>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Right Content Panes -->
+    <section class="admin-content">
+      
+      <!-- PANE 1: BLOGS -->
+      <div id="pane-blogs" class="admin-content-pane active">
+        <div class="admin-pane-header">
+          <h2 class="admin-pane-title">Manage Blogs</h2>
+          <button class="btn btn-primary" onclick="openCrudModal('blog', 'create')">
+            <i class="fa-solid fa-plus" style="margin-right: 6px;"></i> Add New Blog
+          </button>
+        </div>
+        <div class="admin-table-wrapper">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-blogs-list">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- PANE 2: PROJECTS -->
+      <div id="pane-projects" class="admin-content-pane">
+        <div class="admin-pane-header">
+          <h2 class="admin-pane-title">Manage Projects</h2>
+          <button class="btn btn-primary" onclick="openCrudModal('project', 'create')">
+            <i class="fa-solid fa-plus" style="margin-right: 6px;"></i> Add New Project
+          </button>
+        </div>
+        <div class="admin-table-wrapper">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Tags</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-projects-list">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- PANE 3: SKILLS -->
+      <div id="pane-skills" class="admin-content-pane">
+        <div class="admin-pane-header">
+          <h2 class="admin-pane-title">Manage Skills</h2>
+          <button class="btn btn-primary" onclick="openCrudModal('skill', 'create')">
+            <i class="fa-solid fa-plus" style="margin-right: 6px;"></i> Add New Skill
+          </button>
+        </div>
+        <div class="admin-table-wrapper">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Level</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-skills-list">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- PANE 4: UPDATES -->
+      <div id="pane-updates" class="admin-content-pane">
+        <div class="admin-pane-header">
+          <h2 class="admin-pane-title">Manage Timeline Updates</h2>
+          <button class="btn btn-primary" onclick="openCrudModal('update', 'create')">
+            <i class="fa-solid fa-plus" style="margin-right: 6px;"></i> Add Timeline Entry
+          </button>
+        </div>
+        <div class="admin-table-wrapper">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Title</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-updates-list">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- PANE 5: MESSAGES -->
+      <div id="pane-messages" class="admin-content-pane">
+        <div class="admin-pane-header">
+          <h2 class="admin-pane-title">Inquiries & Messages</h2>
+        </div>
+        <div class="admin-table-wrapper">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Sender</th>
+                <th>Email</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-messages-list">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- ==========================================
+       CRUD MODAL OVERLAYS (POPUP EDITORS)
+       ========================================== -->
+  <div id="crud-modal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modal-title" class="modal-title">Edit Entry</h3>
+        <button class="modal-close" onclick="closeCrudModal()">&times;</button>
+      </div>
+      <div id="modal-status" class="form-status" style="display: none;"></div>
+      
+      <!-- FORM: BLOG -->
+      <form id="form-blog" style="display: none;">
+        <input type="hidden" id="blog-id">
+        <div class="form-group">
+          <label class="form-label" for="blog-title">Blog Title</label>
+          <input type="text" id="blog-title" class="form-input" required>
+        </div>
+        <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div>
+            <label class="form-label" for="blog-category">Category</label>
+            <input type="text" id="blog-category" class="form-input" placeholder="Personal, Tech, School..." required>
+          </div>
+          <div>
+            <label class="form-label" for="blog-date">Publish Date</label>
+            <input type="date" id="blog-date" class="form-input" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="blog-image">Cover Image URL</label>
+          <input type="url" id="blog-image" class="form-input" placeholder="https://images.unsplash.com/photo-...">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="blog-content">Blog Content (Markdown supported)</label>
+          <textarea id="blog-content" class="form-input" style="height: 250px; font-family: var(--font-mono); font-size: 13px;" placeholder="Write your post here..." required></textarea>
+        </div>
+      </form>
+
+      <!-- FORM: PROJECT -->
+      <form id="form-project" style="display: none;">
+        <input type="hidden" id="project-id">
+        <div class="form-group">
+          <label class="form-label" for="project-title">Project Title</label>
+          <input type="text" id="project-title" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="project-desc">Description</label>
+          <textarea id="project-desc" class="form-input" style="height: 80px;" required></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="project-tags">Tags (Comma separated)</label>
+          <input type="text" id="project-tags" class="form-input" placeholder="HTML, CSS, Node.js..." required>
+        </div>
+        <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div>
+            <label class="form-label" for="project-link">Live Link (Optional)</label>
+            <input type="url" id="project-link" class="form-input" placeholder="http://...">
+          </div>
+          <div>
+            <label class="form-label" for="project-source">Source Repo Link (Optional)</label>
+            <input type="url" id="project-source" class="form-input" placeholder="https://github.com/...">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="project-image">Cover Image URL</label>
+          <input type="url" id="project-image" class="form-input" placeholder="https://images.unsplash.com/photo-...">
+        </div>
+      </form>
+
+      <!-- FORM: SKILL -->
+      <form id="form-skill" style="display: none;">
+        <input type="hidden" id="skill-id">
+        <div class="form-group">
+          <label class="form-label" for="skill-name">Skill Name</label>
+          <input type="text" id="skill-name" class="form-input" placeholder="JavaScript, Python, etc." required>
+        </div>
+        <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div>
+            <label class="form-label" for="skill-category">Category</label>
+            <select id="skill-category" class="form-input" style="height: 42px;" required>
+              <option value="Frontend">Frontend</option>
+              <option value="Backend">Backend</option>
+              <option value="Programming">Programming</option>
+              <option value="Tools">Tools</option>
+            </select>
+          </div>
+          <div>
+            <label class="form-label" for="skill-level">Proficiency Level (0 - 100%)</label>
+            <input type="number" id="skill-level" class="form-input" min="0" max="100" placeholder="85" required>
+          </div>
+        </div>
+      </form>
+
+      <!-- FORM: UPDATE -->
+      <form id="form-update" style="display: none;">
+        <input type="hidden" id="update-id">
+        <div class="form-group" style="display: grid; grid-template-columns: 0.5fr 1.5fr; gap: 16px;">
+          <div>
+            <label class="form-label" for="update-date">Timeline Date</label>
+            <input type="text" id="update-date" class="form-input" placeholder="June 2026" required>
+          </div>
+          <div>
+            <label class="form-label" for="update-title">Milestone Title</label>
+            <input type="text" id="update-title" class="form-input" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="update-details">Activity Details</label>
+          <textarea id="update-details" class="form-input" style="height: 100px;" required></textarea>
+        </div>
+      </form>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeCrudModal()">Cancel</button>
+        <button id="modal-submit-btn" class="btn btn-primary" onclick="submitCrudForm()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer style="margin-top: 80px;">
+    <div class="container" style="text-align: center; font-size: 13px;">
+      &copy; 2026 Abhinav AKA Tyson. Admin Space. All activities are securely logged and authorized.
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+  <script src="/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Blogs | Abhinav AKA Tyson</title>
+  <meta name="description" content="Read daily updates, coding logs, and school project journals by Abhinav AKA Tyson.">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-theme">
+
+  <!-- ==========================================
+       HEADER & NAVIGATION
+       ========================================== -->
+  <header>
+    <div class="container nav-bar">
+      <a href="/" class="logo-container">
+        <div class="logo-spike"></div>
+        <span>Abhinav.Tyson</span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="/#about" class="nav-link">About</a></li>
+        <li><a href="/#updates" class="nav-link">Updates</a></li>
+        <li><a href="/#projects" class="nav-link">Projects</a></li>
+        <li><a href="/#skills" class="nav-link">Skills</a></li>
+        <li><a href="/blog" class="nav-link active">Daily Blog</a></li>
+        <li><a href="/#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle dark/light theme">
+          <svg class="moon-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          <svg class="sun-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.46 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path></svg>
+        </button>
+        <a href="/" class="btn btn-secondary btn-pill">Back to Portfolio</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       MAIN CONTENT CONTAINER
+       ========================================== -->
+  <main class="container" style="padding: 40px 24px; min-height: 80vh;">
+    
+    <!-- 1. BLOG LIST VIEW PANEL -->
+    <div id="blog-list-view">
+      <div class="section-header">
+        <span class="badge badge-coral">Logs & Writing</span>
+        <h1 class="section-title" style="font-size: 48px; margin-top: 8px;">My Daily Blog</h1>
+        <p class="section-description">A running log of coding experiments, technical challenges, security findings, and student studies.</p>
+      </div>
+
+      <!-- Filters (Search and Category pills) -->
+      <div class="blog-filters-container">
+        <div class="search-wrapper">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="blog-search" class="search-input" placeholder="Search blog titles and content...">
+        </div>
+        <div id="blog-categories" class="category-tags">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <!-- Blogs Listing Grid -->
+      <div id="blogs-grid-container" class="blogs-grid">
+        <p style="text-align: center; color: var(--text-muted);">Loading blogs list...</p>
+      </div>
+    </div>
+
+    <!-- 2. SINGLE BLOG DETAIL VIEW PANEL -->
+    <div id="blog-detail-view" style="display: none;">
+      <article class="blog-reader">
+        <a href="/blog" id="btn-back-to-blogs" class="blog-reader-back">
+          <i class="fa-solid fa-arrow-left"></i> Back to all posts
+        </a>
+        <div class="blog-reader-meta">
+          <span id="detail-category" class="blog-reader-category">Category</span>
+          <span id="detail-date" class="blog-reader-date">Date</span>
+        </div>
+        <h1 id="detail-title" class="blog-reader-title">Post Title</h1>
+        
+        <div id="detail-image-container" class="blog-reader-image" style="display: none;">
+          <img id="detail-image" src="" alt="Blog Cover Image">
+        </div>
+        
+        <!-- Rendered HTML Markdown content -->
+        <div id="detail-content" class="blog-reader-content">
+          Loading content...
+        </div>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="logo-spike footer-logo-spike"></div>
+            <span>Abhinav.Tyson</span>
+          </div>
+          <p class="footer-desc">
+            Personal developer space for Class 10 student Abhinav (Tyson). Studying at PM Shri Kendriya Vidyalaya, India.
+          </p>
+        </div>
+        <div class="footer-links">
+          <div>
+            <div class="footer-links-title">Sections</div>
+            <ul class="footer-links-list">
+              <li><a href="/#about">About Me</a></li>
+              <li><a href="/#updates">Updates</a></li>
+              <li><a href="/#projects">Projects</a></li>
+              <li><a href="/#skills">Technical Skills</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-links-title">Portals</div>
+            <ul class="footer-links-list">
+              <li><a href="/blog">Daily Blogs</a></li>
+              <li><a href="/login">Admin Login</a></li>
+              <li><a href="mailto:karn.abhinav00@gmail.com">Send Email</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="copyright">&copy; 2026 Abhinav AKA Tyson. All rights reserved.</div>
+        <div class="footer-security" style="font-size: 11px; color: var(--text-on-dark-soft); display: flex; align-items: center; gap: 6px;">
+          <i class="fa-solid fa-shield-halved" style="color: var(--accent-primary);"></i> 3-Layer Client-Server Security System
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
